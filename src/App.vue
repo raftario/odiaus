@@ -29,6 +29,6 @@
   }
 
   #nav a.router-link-exact-active {
-    color: $primary;
+    color: map-get($colors, "primaryd");
   }
 </style>

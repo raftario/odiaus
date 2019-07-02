@@ -84,6 +84,6 @@
   }
 
   a {
-    color: $primary;
+    color: map-get($colors, "primary");
   }
 </style>

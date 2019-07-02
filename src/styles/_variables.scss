@@ -1,1 +1,14 @@
-$primary: rgb(248, 137, 25)
+$colors: (
+  "primary": #F88919,
+  "light": #E5E5E5,
+  "lighter": #FFFFFF,
+  "dark": #14213D,
+  "darker": #000000
+);
+
+@each $name, $value in $colors {
+  $colors: map-merge($colors, (
+    "#{$name}l": scale-color($value, $lightness: +16%),
+    "#{$name}d": scale-color($value, $lightness: -16%)
+  ))
+}
