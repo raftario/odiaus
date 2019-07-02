@@ -1,34 +1,63 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Appbar/>
+    <Nav/>
+    <router-view id="content"/>
+    <Playlist/>
+    <Playbar/>
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<script>
+  import Appbar from '@/components/Appbar'
+  import Nav from '@/components/Nav'
+  import Playbar from '@/components/Playbar'
+  import Playlist from '@/components/Playlist'
+  import { Component, Vue } from 'vue-property-decorator'
+
+  @Component({
+    components: {
+      Appbar,
+      Nav,
+      Playbar,
+      Playlist
+    }
+  })
+
+  export default class App extends Vue {}
+</script>
+
+<style lang="scss">
+  %fullsize {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  html, body {
+    @extend %fullsize;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: sans-serif;
+    color: map-get($colors, "darker");
+    background-color: map-get($colors, "lighter");
+  }
+
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    @extend %fullsize;
+
+    display: grid;
+    grid: [appbar-start] "appbar appbar appbar" map-get($sizes, "appbar-height") [appbar-end]
+          [content-start] "nav content playlist" 1fr [content-end]
+          [playbar-start] "playbar playbar playbar" map-get($sizes, "playbar-height") [playbar-end]
+          / map-get($sizes, "nav-width") auto map-get($sizes, "playlist-width");
   }
 
-  #nav {
-    padding: 30px;
-  }
-
-  #nav a {
-    font-weight: bold;
-  }
-
-  #nav a.router-link-exact-active {
-    color: map-get($colors, "primaryd");
+  #content {
+    grid-area: content;
+    padding: $gap;
   }
 </style>

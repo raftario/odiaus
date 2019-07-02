@@ -12,3 +12,12 @@ $colors: (
     "#{$name}d": scale-color($value, $lightness: -16%)
   ))
 }
+
+$sizes: (
+  "appbar-height": 3em,
+  "nav-width": 12em,
+  "playlist-width": 12em,
+  "playbar-height": 6em
+);
+
+$gap: 1em;
