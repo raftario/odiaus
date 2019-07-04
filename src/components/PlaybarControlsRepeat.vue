@@ -43,6 +43,7 @@
     @extend %no-spacing;
 
     fill: map-get($colors, "lighter");
+    margin-left: $gap;
   }
 
   #repeat:hover {

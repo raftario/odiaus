@@ -37,6 +37,7 @@
     @extend %no-spacing;
 
     fill: map-get($colors, "lighter");
+    margin-right: $gap;
   }
 
   #shuffle:hover {
