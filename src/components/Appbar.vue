@@ -14,7 +14,7 @@
   scoped
 >
   #appbar {
-    background-color: map_get($colors, "lightd");
+    background-color: map_get($colors, "light-d");
     grid-area: appbar;
   }
 </style>

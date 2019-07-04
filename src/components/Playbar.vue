@@ -1,11 +1,15 @@
 <template>
-  <div id="playbar"></div>
+  <div id="playbar">
+    <PlaybarControls/>
+  </div>
 </template>
 
 <script lang="ts">
+  import PlaybarControls from '@/components/PlaybarControls.vue'
   import { Component, Vue } from 'vue-property-decorator'
-
-  @Component
+  @Component({
+    components: { PlaybarControls }
+  })
   export default class Playbar extends Vue {}
 </script>
 
@@ -14,7 +18,7 @@
   scoped
 >
   #playbar {
-    background-color: map_get($colors, "darker");
+    background-color: map_get($colors, "darker-ll");
     grid-area: playbar;
   }
 </style>

@@ -1,3 +1,5 @@
+$colorgap: 8;
+
 $colors: (
   "primary": #F88919,
   "light": #E5E5E5,
@@ -8,16 +10,27 @@ $colors: (
 
 @each $name, $value in $colors {
   $colors: map-merge($colors, (
-    "#{$name}l": scale-color($value, $lightness: +16%),
-    "#{$name}d": scale-color($value, $lightness: -16%)
+    "#{$name}-ll": lighten($value, $colorgap * 2),
+    "#{$name}-l": lighten($value, $colorgap),
+    "#{$name}-d": darken($value, $colorgap),
+    "#{$name}-dd": darken($value, $colorgap * 2)
   ))
 }
 
 $sizes: (
-  "appbar-height": 3em,
-  "nav-width": 12em,
-  "playlist-width": 12em,
-  "playbar-height": 6em
+  "appbar-height": 3rem,
+  "nav-width": 12rem,
+  "playlist-width": 12rem,
+  "playbar-height": 6rem
 );
 
-$gap: 1em;
+$gap: 1rem;
+
+%pointer {
+  cursor: pointer;
+}
+
+%no-spacing {
+  margin: 0;
+  padding: 0;
+}
