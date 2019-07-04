@@ -20,6 +20,10 @@
   #playbar {
     background-color: map_get($colors, "darker-ll");
     grid-area: playbar;
+    display: grid;
+    grid: [timeline-start] "timeline" $gap [timeline-end]
+          [controls-start] "nav content playlist" 1fr [controls-end]
+          / auto;
   }
 </style>
 

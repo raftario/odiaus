@@ -36,6 +36,8 @@
     display: flex;
     align-items: center;
     justify-items: center;
+    grid-area: controls;
+    align-self: center;
   }
 </style>
 
