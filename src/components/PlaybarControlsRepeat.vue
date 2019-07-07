@@ -35,27 +35,26 @@
   scoped
 >
   #repeat.active {
-    fill: map-get($colors, "primary-l");
+
   }
 
   #repeat {
     @extend %pointer;
     @extend %no-spacing;
 
-    fill: map-get($colors, "lighter");
     margin-left: $gap;
   }
 
   #repeat:hover {
-    fill: map-get($colors, "primary");
+
   }
 
   #repeat:active {
-    fill: map-get($colors, "primary-d");
+
   }
 
   #repeat-svg {
-    height: map-get($sizes, "playbar-height") / 3;
+    height: $gap;
   }
 </style>
 

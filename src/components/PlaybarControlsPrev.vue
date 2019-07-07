@@ -27,20 +27,18 @@
   #skip-prev {
     @extend %pointer;
     @extend %no-spacing;
-
-    fill: map-get($colors, "lighter");
   }
 
   #skip-prev:hover {
-    fill: map-get($colors, "primary");
+
   }
 
   #skip-prev:active {
-    fill: map-get($colors, "primary-d");
+
   }
 
   #skip-prev-svg {
-    height: map-get($sizes, "playbar-height") / 2;
+    height: 2 * $gap;
   }
 </style>
 

@@ -14,7 +14,6 @@
   scoped
 >
   #playlist {
-    background-color: map_get($colors, "light");
     grid-area: playlist;
   }
 </style>

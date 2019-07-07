@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <Appbar/>
-    <Nav/>
+    <Appbar class="dp04"/>
+    <Nav class="dp03"/>
     <router-view id="content"/>
-    <Playlist/>
-    <Playbar/>
+    <Playlist class="dp03"/>
+    <Playbar class="dp08"/>
   </div>
 </template>
 
 <script>
-  import Appbar from '@/components/Appbar'
-  import Nav from '@/components/Nav'
-  import Playbar from '@/components/Playbar'
-  import Playlist from '@/components/Playlist'
   import { Component, Vue } from 'vue-property-decorator'
+  import Appbar from './components/Appbar'
+  import Nav from './components/Nav'
+  import Playbar from './components/Playbar'
+  import Playlist from './components/Playlist'
 
   @Component({
     components: {
@@ -27,37 +27,39 @@
   export default class App extends Vue {}
 </script>
 
-<style lang="scss">
-  %fullsize {
-    width: 100vw;
-    height: 100vh;
-  }
-
-  html, body {
-    @extend %fullsize;
-
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: sans-serif;
-    color: map-get($colors, "darker");
-    background-color: map-get($colors, "lighter");
-  }
-
+<style
+  lang="scss"
+  scoped
+>
   #app {
     @extend %fullsize;
 
     display: grid;
-    grid: [appbar-start] "appbar appbar appbar" map-get($sizes, "appbar-height") [appbar-end]
+    grid: [appbar-start] "appbar appbar appbar" #{3 * $gap} [appbar-end]
           [content-start] "nav content playlist" 1fr [content-end]
-          [playbar-start] "playbar playbar playbar" map-get($sizes, "playbar-height") [playbar-end]
-          / map-get($sizes, "nav-width") auto map-get($sizes, "playlist-width");
+          [playbar-start] "playbar playbar playbar" #{4 * $gap} [playbar-end]
+          / #{8 * $gap} auto #{8 * $gap};
   }
 
   #content {
     grid-area: content;
-    padding: $gap;
+
+    padding: $margin;
+
+    @include sm {
+      padding: $margin;
+    }
+
+    @include md {
+      padding: $margin;
+    }
+
+    @include lg {
+      padding: $margin;
+    }
+
+    @include xl {
+      padding: $margin;
+    }
   }
 </style>

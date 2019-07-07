@@ -29,27 +29,26 @@
   scoped
 >
   #shuffle.active {
-    fill: map-get($colors, "primary-l");
+
   }
 
   #shuffle {
     @extend %pointer;
     @extend %no-spacing;
 
-    fill: map-get($colors, "lighter");
     margin-right: $gap;
   }
 
   #shuffle:hover {
-    fill: map-get($colors, "primary");
+
   }
 
   #shuffle:active {
-    fill: map-get($colors, "primary-d");
+
   }
 
   #shuffle-svg {
-    height: map-get($sizes, "playbar-height") / 3;
+    height: $gap;
   }
 </style>
 

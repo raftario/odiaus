@@ -37,20 +37,18 @@
   #play-pause {
     @extend %pointer;
     @extend %no-spacing;
-
-    fill: map-get($colors, "lighter");
   }
 
   #play-pause:hover {
-    fill: map-get($colors, "primary");
+
   }
 
   #play-pause:active {
-    fill: map-get($colors, "primary-d");
+
   }
 
   #play-pause-svg {
-    height: map-get($sizes, "playbar-height") * 2 / 3;
+    height: 3 * $gap;
   }
 </style>
 

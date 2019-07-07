@@ -14,7 +14,6 @@
   scoped
 >
   #nav {
-    background-color: map_get($colors, "light");
     grid-area: nav;
   }
 </style>

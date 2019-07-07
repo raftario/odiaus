@@ -1,36 +1,126 @@
-$colorgap: 8;
+//
+// Globals
+//
 
-$colors: (
-  "primary": #F88919,
-  "light": #E5E5E5,
-  "lighter": #FFFFFF,
-  "dark": #14213D,
-  "darker": #000000
+$primary: #FFE082;
+$primary-variant: #FFA000;
+$secondary: #9FA8DA;
+
+$background: #121212;
+$surface: #121212;
+
+$on-primary: #000000;
+$on-primary-variant: #FFFFFF;
+$on-secondary: #000000;
+
+$on-background: #FFFFFF;
+$on-surface: #FFFFFF;
+
+$gap: 8px;
+$sgap: 4px;
+
+$font-point: 0.0625rem;
+
+
+//
+// Surfaces
+//
+
+$dpz: (
+  "01": 0.05,
+  "02": 0.07,
+  "03": 0.08,
+  "04": 0.09,
+  "06": 0.11,
+  "08": 0.12,
+  "12": 0.14,
+  "16": 0.15,
+  "24": 0.16
 );
 
-@each $name, $value in $colors {
-  $colors: map-merge($colors, (
-    "#{$name}-ll": lighten($value, $colorgap * 2),
-    "#{$name}-l": lighten($value, $colorgap),
-    "#{$name}-d": darken($value, $colorgap),
-    "#{$name}-dd": darken($value, $colorgap * 2)
-  ))
+@each $elevation, $overlay in $dpz {
+  @each $name, $color in ("normal": $on-surface, "primary": $primary, "secondary": $secondary) {
+    %dp#{$elevation}-#{$name} {
+      background: mix($surface, rgba($color, $overlay));
+      color: rgba($color, 0.87);
+
+      .text-faded {
+        color: rgba($color, 0.60);
+      }
+
+      .text-disabled {
+        color: rgba($color, 0.38);
+      }
+    }
+  }
 }
 
-$sizes: (
-  "appbar-height": 3rem,
-  "nav-width": 12rem,
-  "playlist-width": 12rem,
-  "playbar-height": 6rem
+
+//
+// Breakpoints
+//
+
+$breakpoints: (
+  "sm": 600px,
+  "md": 1024px,
+  "lg": 1440px,
+  "xl": 1920px
 );
 
-$gap: 1rem;
+$margin: 16px;
 
-%pointer {
-  cursor: pointer;
+@mixin sm {
+  $margin: 16px;
+
+  @media (min-width: 600px) {
+    @content;
+  }
 }
+
+@mixin md {
+  $margin: 24px;
+
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  $margin: 24px;
+
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  $margin: 24px;
+
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+
+//
+// Selectors
+//
 
 %no-spacing {
   margin: 0;
   padding: 0;
+}
+
+%fullsize {
+  width: 100vw;
+  height: 100vh;
+}
+
+%overline {
+  font-size: 10 * $font-point;
+  text-transform: capitalize;
+}
+
+%pointer {
+  cursor: pointer;
 }
