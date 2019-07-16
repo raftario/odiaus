@@ -1,65 +1,33 @@
 <template>
   <div id="app">
-    <Appbar class="dp04"/>
-    <Nav class="dp03"/>
-    <router-view id="content"/>
-    <Playlist class="dp03"/>
-    <Playbar class="dp08"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+      |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
-<script>
-  import { Component, Vue } from 'vue-property-decorator'
-  import Appbar from './components/Appbar'
-  import Nav from './components/Nav'
-  import Playbar from './components/Playbar'
-  import Playlist from './components/Playlist'
-
-  @Component({
-    components: {
-      Appbar,
-      Nav,
-      Playbar,
-      Playlist
-    }
-  })
-
-  export default class App extends Vue {}
-</script>
-
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss">
   #app {
-    @extend %fullsize;
-
-    display: grid;
-    grid: [appbar-start] "appbar appbar appbar" #{3 * $gap} [appbar-end]
-          [content-start] "nav content playlist" 1fr [content-end]
-          [playbar-start] "playbar playbar playbar" #{4 * $gap} [playbar-end]
-          / #{8 * $gap} auto #{8 * $gap};
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
   }
 
-  #content {
-    grid-area: content;
+  #nav {
+    padding: 30px;
 
-    padding: $margin;
+    a {
+      font-weight: bold;
+      color: #2c3e50;
 
-    @include sm {
-      padding: $margin;
-    }
-
-    @include md {
-      padding: $margin;
-    }
-
-    @include lg {
-      padding: $margin;
-    }
-
-    @include xl {
-      padding: $margin;
+      &.router-link-exact-active {
+        color: #42b983;
+      }
     }
   }
 </style>
